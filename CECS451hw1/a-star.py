@@ -5,7 +5,7 @@ map = {}
 for i in range(18):
     mapLine = str(mapFile.readline)
     print(mapLine)
-    map[mapLine.split('-')[0]] = (mapLine.split('-')[1].split(','))
+    map[mapLine.split('-')[0]] = mapLine.split('-')[1].split(',')
 
 def a_star(start, goal, graph):
     heap = [(0, start)]
