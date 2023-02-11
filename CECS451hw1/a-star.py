@@ -1,4 +1,5 @@
 import heapq
+import math
 
 mapFile = open(r"C:\Users\jakes\Documents\CECS451\CECS451hw1\map.txt")
 map = {}
@@ -8,7 +9,8 @@ for i in range(18):
     map[mapLine.split('-')[0]] = mapLine.split('-')[1].split(',')
 
 def HaversineEstimateCost(startLatitude, startLongitude, goalLatitude, goalLongitude):
-
+    return 2 * 3958.8 * math.sinh(math.sqrt((math.sin((goalLatitude - startLatitude)/2))**2 + math.cos(startLatitude) 
+            * math.cos(goalLatitude) * (math.sin((goalLongitude-startLongitude)/2)**2)))
 
 def a_star(start, goal, map):
     heap = [(0, start)]
