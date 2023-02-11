@@ -7,7 +7,10 @@ for i in range(18):
     print(mapLine)
     map[mapLine.split('-')[0]] = mapLine.split('-')[1].split(',')
 
-def a_star(start, goal, graph):
+def HaversineEstimateCost(startLatitude, startLongitude, goalLatitude, goalLongitude):
+
+
+def a_star(start, goal, map):
     heap = [(0, start)]
     visited = set()
     while heap:
@@ -17,7 +20,7 @@ def a_star(start, goal, graph):
         if current in visited:
             continue
         visited.add(current)
-        for neighbor in graph[current]:
+        for neighbor in map[current]:
             heapq.heappush(heap, (cost + 1, neighbor))
     return float('inf')
     print("From city: " + start + "\nTo city: " + goal + "\nBest Route: " 
